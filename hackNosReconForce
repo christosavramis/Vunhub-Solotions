@@ -1,1 +1,5 @@
 challenge url : https://www.vulnhub.com/entry/hacknos-reconforce,416/
+
+add vm
+
+long username more than 9999999999999999999999999999999999999999999999999999999999 doesnt trigger password promp :?
