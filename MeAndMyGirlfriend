@@ -24,7 +24,7 @@ url: https://www.vulnhub.com/entry/me-and-my-girlfriend-1,409/
 	Nmap done: 1 IP address (1 host up) scanned in 1.72 seconds
 
 3) http://192.168.1.28 :
-	page source has this comment: <!-- Maybe you can search how to use x-forwarded-for --> (probably this will lead us in the flags)
+	page source has this comment: <!-- Maybe you can search how to use x-forwarded-for --> (probably this will lead us to the flags)
 
 4) nmap -A -v 192.168.1.28 : 
 
