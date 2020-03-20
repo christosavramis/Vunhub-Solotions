@@ -1,1 +1,33 @@
 url: https://www.vulnhub.com/entry/me-and-my-girlfriend-1,409/
+
+(I use brigded adapter in the VM)
+
+1) netdiscover :       
+	_____________________________________________________________________________
+	  IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+	-----------------------------------------------------------------------------
+	192.168.1.9     50:3e:aa:aa:cc:5c      7     294  Unknown vendor              
+	192.168.1.1     78:c1:a7:0e:d0:16     11     462  Unknown vendor              
+	192.168.1.28    08:00:27:16:63:63      2     120  CADMUS COMPUTER SYSTEMS   
+
+2) nmap 192.168.1.28 :
+
+	Starting Nmap 7.01 ( https://nmap.org ) at 2020-03-20 19:36 EET
+	Nmap scan report for gfriend (192.168.1.28)
+	Host is up (0.00092s latency).
+	Not shown: 998 closed ports
+	PORT   STATE SERVICE
+	22/tcp open  ssh
+	80/tcp open  http
+	MAC Address: 08:00:27:16:63:63 (Oracle VirtualBox virtual NIC)
+
+	Nmap done: 1 IP address (1 host up) scanned in 1.72 seconds
+
+3) http://192.168.1.28:
+	page source has this comment: <!-- Maybe you can search how to use x-forwarded-for --> (could be the 1st flag(?))
+
+4) nmap -A -v 192.168.1.28 : 
+
+	22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
+
+	80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
