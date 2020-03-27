@@ -104,4 +104,3 @@
 		ftp:x:111:117:ftp daemon,,,:/srv/ftp:/usr/sbin/nologin
 		mysql:x:112:118:MySQL Server,,,:/nonexistent:/bin/false
 		dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
-		
