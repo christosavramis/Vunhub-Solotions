@@ -1,0 +1,53 @@
+challenge url : https://www.vulnhub.com/entry/hacknos-reconforce,416/
+
+add vm and load ova file
+# network host-only addapter
+
+1 find vm ip ipconfig /all ,select the host-only network
+
+2 nmap -sn 192.168.56.1-254
+
+    vm is offline
+    Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-03 11:32 GTB Standard Time
+    Nmap scan report for 192.168.56.1 (192.168.56.1)
+    Host is up.
+    Nmap scan report for 192.168.56.100 (192.168.56.100)
+    Host is up (0.00s latency).
+    MAC Address: 08:00:27:9C:BB:CA (Oracle VirtualBox virtual NIC)
+    Nmap done: 254 IP addresses (2 hosts up) scanned in 9.43 seconds
+
+    vm is online
+    Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-03 11:37 GTB Standard Time
+    Nmap scan report for 192.168.56.1 (192.168.56.1)
+    Host is up.
+    Nmap scan report for 192.168.56.100 (192.168.56.100)
+    Host is up (0.00s latency).
+    MAC Address: 08:00:27:9C:BB:CA (Oracle VirtualBox virtual NIC)
+    Nmap scan report for 192.168.56.101 (192.168.56.101)
+    Host is up (0.00s latency).
+    MAC Address: 08:00:27:2F:E8:63 (Oracle VirtualBox virtual NIC)
+    Nmap done: 254 IP addresses (3 hosts up) scanned in 4.99 seconds
+
+    Online - offline = 
+
+    Nmap scan report for 192.168.56.101 (192.168.56.101)
+    MAC Address: 08:00:27:2F:E8:63 (Oracle VirtualBox virtual NIC)
+
+3 http://192.168.56.101/ returns a hacknos webpage which seems promising
+
+    long username more than 9999999999999999999999999999999999999999999999999999999999 doesnt trigger password promp :?
+
+4 nmap -T4 -A -v 192.168.56.101
+
+    22/tcp open  ssh     OpenSSH 8.0p1 Ubuntu 6build1 (Ubuntu Linux; protocol 2.0)
+
+    21/tcp open  ftp     vsftpd 2.0.8 or later
+
+    80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu)) 
+
+    http://192.168.56.101/5ecure/ requires login username and password
+
+5 ftp 192.168.56.101
+    https://peguta.com/articles/common-used-passwords
+    username : ftp
+    password : ftp
