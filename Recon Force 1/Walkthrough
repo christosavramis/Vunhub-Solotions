@@ -68,7 +68,7 @@
 	- ssh 192.168.0.12 -l recon
 		* pass: Security@hackNos
 	- docker run -it --privileged --name=ctf -v /:/host:rw alpine sh
-
+	- container: cd /host
 
 !) Files:
 	- /var/opt/python.py:
