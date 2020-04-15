@@ -51,3 +51,11 @@ add vm and load ova file
     https://peguta.com/articles/common-used-passwords
     username : ftp
     password : ftp
+
+
+admin:Security@hackNos
+
+|| cat ../../../../../home/recon/user.txt
+###########################################
+
+MD5HASH: bae11ce4f67af91fa58576c1da2aad4b
