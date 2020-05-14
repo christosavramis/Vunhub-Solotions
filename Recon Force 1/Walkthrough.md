@@ -37,7 +37,7 @@
 	* `exec(ping $ip)`, possible shell injection 
 - $ip = || command, '; + command', '&& + command', '& + command' didn't work out, char escape probably 
 - Examples:
-	- ip=|| ls 
+	* ip=|| ls 
 		* system navigation
 	* ip=|| whoami 
 		* www-data
