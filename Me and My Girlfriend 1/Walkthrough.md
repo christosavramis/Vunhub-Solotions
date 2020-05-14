@@ -27,7 +27,7 @@
 - profile : http://192.168.1.13/index.php?page=profile&user_id=13
 - `form action="#"` -> POSTS data on index.php?page=profile
 - user_id allows to get all the name,uname,pass values 
-- uname:pass list
+- uname:pass list  
 	1.eweuhtandingan:skuyatuh  
 	2.aingmaung:qwerty!!!  
 	3.sundatea:indONEsia  
