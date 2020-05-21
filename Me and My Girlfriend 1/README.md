@@ -1,10 +1,10 @@
-# Table of Contents
+# Walkthrough: [Me and My Girlfriend 1](https://www.vulnhub.com/entry/me-and-my-girlfriend-1,409/)
+
+## Table of Contents
 
 - [Enumeration](#enumeration)
 - [Penetration](#penetration)
 - [Privilege Escelation](#privilege-escelation)
-
-
 ---
 
 ## Enumeration: 
@@ -27,6 +27,7 @@
 	  http://192.168.0.14/config/config.php
 	  http://192.168.0.14/heyhoo.txt
 	  </pre>
+---
 
 ## Penetration:
 - *index.php* requires local machine access
@@ -49,7 +50,8 @@
 	  </pre>
 - `ssh 192.168.1.13 -l alice`
 - Login in and capture **first flag**
-			
+---
+		  
 ## Privilege Escelation:
 - `sudo -l`
 	* alice has root access on /usr/bin/php
