@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Enumeration](#enumeration)
-- [Penetration & Privilege Escelation](#penetration-&-privilege-escelation)
+- [Penetration & Privilege Escelation](#penetration--privilege-escelation)
 - [Bonus](#bonus)
 	- [Bruteforce](#brute-force)
 	- [Intresting Files](#intresting-files)
