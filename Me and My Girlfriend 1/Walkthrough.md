@@ -13,11 +13,13 @@
 	* `VMWare 192.168.0.14`
 	
 - VM info: `nmap -A -T4 -v 192.168.0.14`
+
 	* <pre>
 	  22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
 	  80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
 	  </pre>
-- web server info: `dirb -w http://192.168.0.14`
+	  
+- web Server Directory: `dirb -w http://192.168.0.14`
 
 	* <pre>
 	  http://192.168.0.14/index.php
@@ -27,7 +29,7 @@
 	  </pre>
 
 ## Penetration:
-- index.php requires local machine access
+- *index.php* requires local machine access
 - Header capture/info with **Fiddler**
 - Customize header with a browser extension(simply add `X-Forwarded-For: 0.0.0.0`)
 - Local access granted 
@@ -35,7 +37,7 @@
 - Login page: http://192.168.0.14/index.php?page=login
 - Profile page: http://192.168.0.14/index.php?page=profile&user_id=13
 - `form action="#"` -> POSTS data on index.php?page=profile
-- user_id allows to get all the name,uname,pass values 
+- *user_id* allows to get all the name,uname,pass values 
 - uname:pass list 
 	* <pre>
 	  1.eweuhtandingan:skuyatuh
@@ -46,7 +48,7 @@
 	  6.abdikasepak:dorrrrr
 	  </pre>
 - `ssh 192.168.1.13 -l alice`
-- login in and capture **first flag**
+- Login in and capture **first flag**
 			
 ## Privilege Escelation:
 - `sudo -l`:
