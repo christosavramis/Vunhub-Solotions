@@ -1,4 +1,6 @@
-# Table of Contents
+# Walkthrough: [Kioptrix: Level 1](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/)
+
+## Table of Contents
 
 - [Enumeration](#enumeration)
 - [Penetration](#penetration)
@@ -7,9 +9,7 @@
 	- [Bruteforce](#brute-force)
 	- [Intresting Files](#intresting-files)
 
----
-
-## Enumeration: 
+## Enumeration
 - VM IP: `sudo netdiscover`
 
 	* `VMWare 192.168.0.14`
@@ -77,6 +77,7 @@
 ## Penetration:
 
 ## Privilege Escelation:
+
 
 ## Bonus
 
