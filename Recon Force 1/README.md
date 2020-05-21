@@ -1,4 +1,6 @@
-# Table of Contents
+# Walkthrough: [ReconForce v1.1](https://www.vulnhub.com/entry/hacknos-reconforce-v11,416/)
+
+## Table of Contents
 
 - [Enumeration](#enumeration)
 - [Penetration](#penetration)
@@ -6,9 +8,6 @@
 - [Bonus](#bonus)
 	- [CLI](#cli)
 	- [Intresting Files](#intresting-files)
-
-
----
 
 ## Enumeration
 - VM IP: `sudo netdiscover`
@@ -44,8 +43,7 @@
 	  http://192.168.0.14/5ecure/css/2.jpg
 	  http://192.168.0.14/5ecure/output.php, simple ping <ip> function + stdout
 	  </pre>
----
-	
+
 ## Penetration
 - 192.168.0.14/5ecure/out.php
 
@@ -64,7 +62,6 @@
 
 	* /var/opt/python.py, creates a connection to 192.168.0.104:4444 and runs an interactive shell
 	* /etc/passwd, user information
----
 
 ## Escelation
 
@@ -72,6 +69,7 @@
 	* pass: Security@hackNos
 - `docker run -it --privileged --name=ctf -v /:/host:rw alpine sh`
 - container: `cd /host`
+
 ---
 
 ## Bonus
@@ -89,7 +87,6 @@
 - `getent group`: 
 	* `docker:x:119:`, passwd --> `recon:x:1000:119:rahul:/home/recon:/bin/bash`
 	* recon user gid = docker 
----
 
 ### Intresting files
 
