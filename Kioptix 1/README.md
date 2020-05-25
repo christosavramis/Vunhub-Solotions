@@ -83,7 +83,10 @@
 ## Bonus
 
 ### Brute Force
-
+- Nikto revealed an Apache vurnerability (https://www.exploit-db.com/exploits/21112) which releaves usernames that exist on the vulnerable system.
+	* Download the exploit from: https://www.exploit-db.com/exploits/21112
+	* Run the exploit: `./21112.php <host> <userlist> <delay>`
+	
 ### Intresting Files
 - /test.php:
   ```
