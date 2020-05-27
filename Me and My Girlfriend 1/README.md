@@ -1,4 +1,5 @@
 # Walkthrough: [Me and My Girlfriend 1](https://www.vulnhub.com/entry/me-and-my-girlfriend-1,409/)
+## Security Report: [Document link](https://github.com/christosavramis/Vunhub-Solotions/blob/master/Me%20and%20My%20Girlfriend%201/Me%20and%20my%20Girlfriend%20Security%20Report.pdf)
 
 ## Table of Contents
 
