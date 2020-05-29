@@ -54,7 +54,7 @@
     ---------            -------
     MYGROUP              ANTON
     </pre>
-  * `enum4linux4 -a -v 192.168.0.14`
+  * `enum4linux -a -v 192.168.0.14`
 
 - NetBIOS info: `sudo nbtscan -v 192.168.0.14`
   
