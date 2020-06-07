@@ -3,4 +3,4 @@
 * [Recon Force 1.1](https://github.com/christosavramis/Vunhub-Solotions/tree/master/Recon%20Force%201)
 * [Kioptrix Lvl1](https://github.com/christosavramis/Vunhub-Solotions/tree/master/Kioptix%201)  
 
-Each directory contains a **walkthrough**, a **security report** and potential *files* or *data* that were used for the corresponding CTF.
+Each directory contains a **walkthrough**, a **video-walkthrough link**, a **security report** and potential *files* or *data* that were used for the corresponding CTF.
